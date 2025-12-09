@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompressImage.id - Kompres Gambar Online Gratis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-compress-alt"></i> CompressImage.id</h1>
+            <p class="tagline">Kompres gambar online dengan satu klik. Gratis, cepat, tanpa watermark!</p>
+        </header>
+
+        <main>
+            <!-- Upload Area -->
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                    <h3>Seret & Jatuhkan Gambar di Sini</h3>
+                    <p>atau klik untuk memilih file</p>
+                    <p class="file-info">Mendukung: JPG, PNG, WebP • Maks: 10MB</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <!-- Preview & Controls -->
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <div class="preview-container">
+                    <div class="image-preview">
+                        <img id="imagePreview" src="" alt="Preview">
+                    </div>
+                    
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="quality">Kualitas: <span id="qualityValue">80</span>%</label>
+                            <input type="range" id="quality" min="10" max="100" value="80">
+                            <div class="quality-labels">
+                                <span>Kecil</span>
+                                <span>Sedang</span>
+                                <span>Besar</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="maxWidth">Lebar Maks: <span id="widthValue">1920</span>px</label>
+                            <input type="range" id="maxWidth" min="320" max="3840" value="1920" step="160">
+                            <div class="size-labels">
+                                <span>Mobile</span>
+                                <span>Tablet</span>
+                                <span>Desktop</span>
+                                <span>4K</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-compress" id="compressBtn">
+                            <i class="fas fa-bolt"></i> Kompres Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card">
+                    <h3><i class="fas fa-chart-bar"></i> Hasil Kompresi</h3>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-label">Original</span>
+                            <span class="stat-value" id="originalSize">0 KB</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Hasil</span>
+                            <span class="stat-value" id="compressedSize">0 KB</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Pengurangan</span>
+                            <span class="stat-value success" id="reductionPercent">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="download-area">
+                        <a id="downloadLink" class="btn-download" download>
+                            <i class="fas fa-download"></i> Download Gambar
+                        </a>
+                        <button class="btn-new" id="newImageBtn">
+                            <i class="fas fa-redo"></i> Kompres Lagi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features">
+                <h2><i class="fas fa-star"></i> Kenapa Pilih Kami?</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Aman & Privasi</h4>
+                        <p>Semua proses di browser, gambar tidak dikirim ke server.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Cepat</h4>
+                        <p>Kompresi instan tanpa waiting time.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-infinity"></i>
+                        <h4>Tidak Terbatas</h4>
+                        <p>Tidak ada batas jumlah kompresi, benar-benar gratis!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 CompressImage.id • Dibuat dengan ❤️ di Indonesia</p>
+            <p class="footer-links">
+                <a href="#" onclick="alert('Email: support@compressimage.id (coming soon)')"><i class="fas fa-envelope"></i> Kontak</a>
+                <a href="#" onclick="alert('Privasi 100% aman! Gambar tidak disimpan di server manapun.')"><i class="fas fa-shield-alt"></i> Privasi</a>
+                <a href="https://github.com/tukangnomer01-lab/image-compressor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Image Compression Library -->
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.min.js"></script>
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Simple Analytics Script -->
+    <script>
+        // Track page views
+        console.log('Image Compressor loaded - Free tool for Indonesia!');
+        
+        // Track button clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'compressBtn') {
+                console.log('Compress button clicked');
+            }
+            if (e.target.id === 'downloadLink') {
+                console.log('Download button clicked - Image compressed successfully!');
+            }
+        });
+    </script>
+</body>
+</html>
