@@ -3,7 +3,7 @@
 Free online image compression tool. Compress JPG, PNG, WebP images without losing quality.
 
 ## 🌐 Live Website
-**https://image-compressor.vercel.app**
+**https://image-compressor-psi-gray.vercel.app**
 
 ## ✨ Features
 - ✅ 100% Client-side (no server upload)
