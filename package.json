@@ -1,0 +1,27 @@
+{
+  "name": "image-compressor",
+  "version": "1.0.0",
+  "description": "Free online image compression tool - Kompres gambar online gratis",
+  "private": true,
+  "main": "index.html",
+  "scripts": {
+    "dev": "http-server",
+    "build": "echo 'Static site - no build step needed'",
+    "lint": "echo 'No linter configured for static HTML'"
+  },
+  "keywords": [
+    "image compression",
+    "compress image",
+    "kompres gambar",
+    "online tool",
+    "free"
+  ],
+  "author": "tukangnomer01-lab",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
